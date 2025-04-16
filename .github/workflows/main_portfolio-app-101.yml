@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Node.js app to Azure Web App - portfolio-app-101
+name: Build, Test, and Deploy to Azure Web App
 
 on:
   push:
@@ -9,33 +6,95 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read #This is required for actions/checkout
+env:
+  NODE_VERSION: '18.x'
+  AZURE_WEBAPP_NAME: 'portfolio-app-101'
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
 
+jobs:
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Node.js version
+      
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run linting
+        run: npm run lint
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
-
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
-      - name: Upload artifact for deployment job
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run unit tests
+        run: npm test -- --watch=false --code-coverage
+        
+      - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
+          name: coverage-report
+          path: coverage
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build application
+        run: npm run build -- --prod
+        
+      - name: Run e2e tests
+        run: npm run e2e
+
+  build:
+    runs-on: ubuntu-latest
+    needs: e2e
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build production app
+        run: npm run build -- --prod
+        
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
+        
+      - name: Upload artifact for deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: angular-app
           path: release.zip
 
   deploy:
@@ -44,31 +103,27 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+      
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
-
+          name: angular-app
+          
       - name: Unzip artifact for deployment
         run: unzip release.zip
-      
+        
       - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6719E66E5D2741A891CD386014FB7095 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_92857C5EAFBF4BC79B10281660C4EC6F }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ACA443EBE2D34A8FB35D7D019104134F }}
-
+          
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'portfolio-app-101'
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: 'Production'
-          package: .
-          
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
