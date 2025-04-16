@@ -1,4 +1,4 @@
-name: Build, Test, and Deploy to Azure Web App
+name: Build, Test, and Deploy Angular App to Azure
 
 on:
   push:
@@ -9,11 +9,13 @@ on:
 env:
   NODE_VERSION: '18.x'
   AZURE_WEBAPP_NAME: 'portfolio-app-101'
-  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  ANGULAR_BUILD_OUTPUT_PATH: 'dist/muffeez-portfolio'
 
 jobs:
-  lint:
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
       - uses: actions/checkout@v4
       
@@ -21,10 +23,33 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
           
+      - name: Cache node modules
+        id: cache-deps
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm install
-        
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Restore node modules from cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          
       - name: Run linting
         run: npm run lint
 
@@ -34,15 +59,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+      - name: Restore node modules from cache
+        uses: actions/cache@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           
-      - name: Install dependencies
-        run: npm install
-        
-      - name: Run unit tests
+      - name: Run unit tests with coverage
         run: npm test -- --watch=false --code-coverage
         
       - name: Upload coverage report
@@ -57,15 +80,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+      - name: Restore node modules from cache
+        uses: actions/cache@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           
-      - name: Install dependencies
-        run: npm install
-        
-      - name: Build application
+      - name: Build application for e2e tests
         run: npm run build -- --prod
         
       - name: Run e2e tests
@@ -77,25 +98,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+      - name: Restore node modules from cache
+        uses: actions/cache@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           
-      - name: Install dependencies
-        run: npm install
-        
       - name: Build production app
         run: npm run build -- --prod
         
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: |
+          cd ${{ env.ANGULAR_BUILD_OUTPUT_PATH }}
+          zip -r ../angular-app.zip ./*
+          cd ../..
         
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: angular-app
-          path: release.zip
+          path: angular-app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -111,7 +133,7 @@ jobs:
           name: angular-app
           
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip angular-app.zip -d deployment-files
         
       - name: Login to Azure
         uses: azure/login@v2
@@ -126,4 +148,4 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: 'Production'
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          package: deployment-files
