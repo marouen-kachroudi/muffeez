@@ -1,151 +1,27 @@
-name: Build, Test, and Deploy Angular App to Azure
+name: Deploy Angular Portfolio to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
-
-env:
-  NODE_VERSION: '18.x'
-  AZURE_WEBAPP_NAME: 'portfolio-app-101'
-  ANGULAR_BUILD_OUTPUT_PATH: 'dist/muffeez-portfolio'
+    branches: [ main ] # or master, depending on your default branch
 
 jobs:
-  setup:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    outputs:
-      cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
+
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Node.js ${{ env.NODE_VERSION }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          
-      - name: Cache node modules
-        id: cache-deps
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16 # Angular 13 works well with Node 16
 
       - name: Install dependencies
         run: npm install
-        if: steps.cache-deps.outputs.cache-hit != 'true'
 
-  lint:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Restore node modules from cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          
-      - name: Run linting
-        run: npm run lint
+      - name: Run tests
+        run: npm test
 
-  test:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Restore node modules from cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          
-      - name: Run unit tests with coverage
-        run: npm test -- --watch=false --code-coverage
-        
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage
-
-  e2e:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Restore node modules from cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          
-      - name: Build application for e2e tests
-        run: npm run build -- --prod
-        
-      - name: Run e2e tests
-        run: npm run e2e
-
-  build:
-    runs-on: ubuntu-latest
-    needs: e2e
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Restore node modules from cache
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          
-      - name: Build production app
-        run: npm run build -- --prod
-        
-      - name: Zip artifact for deployment
-        run: |
-          cd ${{ env.ANGULAR_BUILD_OUTPUT_PATH }}
-          zip -r ../angular-app.zip ./*
-          cd ../..
-        
-      - name: Upload artifact for deployment
-        uses: actions/upload-artifact@v4
-        with:
-          name: angular-app
-          path: angular-app.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: angular-app
-          
-      - name: Unzip artifact for deployment
-        run: unzip angular-app.zip -d deployment-files
-        
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6719E66E5D2741A891CD386014FB7095 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_92857C5EAFBF4BC79B10281660C4EC6F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ACA443EBE2D34A8FB35D7D019104134F }}
-          
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          slot-name: 'Production'
-          package: deployment-files
+      - name: Build application
+        run: npm run build
