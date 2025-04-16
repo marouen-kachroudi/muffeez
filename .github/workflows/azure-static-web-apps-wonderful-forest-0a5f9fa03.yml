@@ -19,19 +19,25 @@ jobs:
         with:
           submodules: true
           lfs: false
+      
+      # Setup Node.js 14.x which is recommended for Angular 12
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          app_build_command: "npm install --legacy-peer-deps && npm run build"
+          app_build_command: "npm install --legacy-peer-deps && npm run build -- --prod"
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WONDERFUL_FOREST_0A5F9FA03 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "dist/muffeez-portfolio" # Built app content directory - optional
+          ###### Repository/Build Configurations ######
+          app_location: "/"
+          api_location: ""
+          output_location: "dist" # Angular 12 default build output directory
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
