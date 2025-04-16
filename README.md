@@ -1,6 +1,9 @@
 # AngularUI App (12) Azure Static Web App Deployment
 
+[![Azure Static Web Apps CI/CD](https://github.com/MedJoudi/muffeez/actions/workflows/azure-static-web-apps-wonderful-forest-0a5f9fa03.yml/badge.svg)](https://github.com/MedJoudi/muffeez/actions/workflows/azure-static-web-apps-wonderful-forest-0a5f9fa03.yml)
+
 This project demonstrates how to deploy an Angular 12 application to Azure Static Web Apps using GitHub Actions.
+
 # Muffeez-Portfolio 
 Click the link below to open Muffezz's portfolio.
 <https://mufeez1.github.io/muffeez/> 
