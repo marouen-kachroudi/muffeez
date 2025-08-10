@@ -1,6 +1,6 @@
 # AngularUI App (12) Azure Static Web App Deployment
 
-[![Azure Static Web Apps CI/CD [2nd Sub]](https://github.com/MedJoudi/muffeez/actions/workflows/azure-static-web-apps-salmon-bush-019bcd003.yml/badge.svg)](https://github.com/marouen44/muffeez/actions/workflows/azure-static-web-apps-salmon-bush-019bcd003.yml)
+[![Azure Static Web Apps CI/CD [2nd Sub]](https://github.com/marouen44/muffeez/actions/workflows/azure-static-web-apps-salmon-bush-019bcd003.yml/badge.svg)](https://github.com/marouen44/muffeez/actions/workflows/azure-static-web-apps-salmon-bush-019bcd003.yml)
 
 This project demonstrates how to deploy an Angular 12 application to Azure Static Web Apps using GitHub Actions.
 
