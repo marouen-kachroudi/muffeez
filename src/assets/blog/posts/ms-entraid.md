@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Entra ID: Identity Simplified, Security Amplified"
+title: "Entra ID: Identity Simplified, Security Amplified"
 date: 2025-04-01
 subtitle: "Ever wondered what powers secure access across Microsoft’s cloud ecosystem?"
 author: "Marouen Kachroudi"
