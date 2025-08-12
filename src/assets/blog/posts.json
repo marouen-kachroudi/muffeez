@@ -16,6 +16,14 @@
       "image": ["assets/blog/images/microsoftentraid2.jpg"]
     },
     {
+       "id": "vmss",
+      "title": "Unlock the Azure VMSS potential for Stronger, More Impactful Deployments",
+      "date": "2025-04-08",
+      "summary": "If you’re deploying cloud-native apps, Azure Virtual Machine Scale Sets (VMSS) are essential.",
+      "tags": ["MicrosoftAzure", "AzureVMSS", "CloudScaling", "AzureAdmin", "SmartScaling", "CloudArchitecture"],
+      "image": ["assets/blog/images/vmss.jpg"]
+    },
+    {
       "id": "my-first-post",
       "title": "Azure Private Link",
       "date": "2023-06-15",

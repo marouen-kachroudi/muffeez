@@ -54,5 +54,4 @@ Handling Microsoft Entra ID goes far beyond simply creating accounts or configur
 
 ---
 
-👉 **Anchor your learning here.**
-https://learn.microsoft.com/en-us/entra/
+👉 [**Anchor your learning here.**](https://learn.microsoft.com/en-us/entra/)
