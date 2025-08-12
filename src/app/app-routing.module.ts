@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogPostComponent } from './blog/blog-post/blog-post.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { ResearchComponent } from './research/research.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
       { path: ':id', component: BlogPostComponent } // matches /blog/:id
     ]
   },
+  { path: 'articles', component: ArticlesComponent },
+  { path: 'research', component: ResearchComponent },
   { path: '**', redirectTo: '' } // Keep this last
 ];
 

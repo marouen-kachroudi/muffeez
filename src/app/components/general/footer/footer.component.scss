@@ -62,14 +62,15 @@ footer{
         }
     }
     .footer-credits{
+
+    
         font-family: $CodeFont;
         font-size: 12px;
         line-height: 1;
-    
-        position: absolute;
-        margin: auto;
-        left: 0;
-        right: 0;
+        margin-top: auto; // Pushes footer to bottom
+        padding: 20px 0; // Add some spacing
+        text-align: center;
+        width: 100%;
         margin-top: -60px;
 
         a{

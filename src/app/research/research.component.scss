@@ -1,0 +1,39 @@
+@import "./../../variables.scss";
+
+.research-container {
+  padding: 100px 0;
+  color: $LightestSlate;
+  max-width: 1200px;
+  margin: 0 auto;
+
+    .section-box {
+    padding: 0;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    font-family: $CodeFont;
+    color: $LightestSlate;
+    font-size: clamp(26px, 5vw, 32px);
+    white-space: nowrap;
+    margin-bottom: 50px;
+
+    .n-section-title {
+      margin-right: 10px;
+      color: $Green;
+      font-family: $CodeFont;
+      font-size: clamp(16px, 3vw, 20px);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 300px;
+      background-color: $LightestNavy;
+      margin-left: 20px;
+    }
+  }
+
+}

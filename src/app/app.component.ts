@@ -32,18 +32,18 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     AOS.init();
 
-    DisableDevtool({
-      url: 'https://mkachroudi.org',
-      tkName: 'bypassToken',
-      disableMenu: true,
-      clearLog: true,
-      detectors: [0, 1, 2, 3, 4, 5, 6, 7],
-      ondevtoolopen(type, next) {
-        console.log('DevTools opened with type:', type);
-        next();
-      },
-      ignore: [/\/admin/]
-    });
+//    DisableDevtool({
+//      url: 'https://mkachroudi.org',
+//      tkName: 'bypassToken',
+//      disableMenu: true,
+//      clearLog: true,
+//      detectors: [0, 1, 2, 3, 4, 5, 6, 7],
+//      ondevtoolopen(type, next) {
+//        console.log('DevTools opened with type:', type);
+//        next();
+//      },
+//      ignore: [/\/admin/]
+//    });
   }
 
   ngAfterViewInit(): void {
