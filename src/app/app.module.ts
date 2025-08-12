@@ -16,6 +16,8 @@ import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { BlogPostComponent } from './blog/blog-post/blog-post.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ProtectionModalComponent } from './protection-modal/protection-modal.component';
+import { ResearchComponent } from './research/research.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -27,6 +29,8 @@ export function HttpLoaderFactory(http: HttpClient){
     BlogListComponent,
     BlogPostComponent,
     ProtectionModalComponent,
+    ResearchComponent,
+    ArticlesComponent,
     /* ArchiveComponent */
   ],
   imports: [
