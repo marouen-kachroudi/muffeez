@@ -1,11 +1,11 @@
 [
     {
-      "id": "post-from the future",
-      "title": "Blog from January 2026",
-      "date": "2026-01-12",
-      "summary": "Blog From The Future",
-      "tags": ["Test", "Future"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
+      "id": "ms-entraid",
+      "title": "Microsoft Entra ID: Identity Simplified, Security Amplified",
+      "date": "2025-04-01",
+      "summary": "Ever wondered what powers secure access across Microsoft’s cloud ecosystem?",
+      "tags": ["MicrosoftAzure", "MicrosoftEntraID", "IdentityManagement", "CloudSecurity", "IAM", "AzureAD", "Cloud"],
+      "image": ["assets/blog/images/entra-id-app.jpg"]
     },
     {
       "id": "my-first-post",
