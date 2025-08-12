@@ -8,6 +8,14 @@
       "image": ["assets/blog/images/entra-id-app.jpg"]
     },
     {
+       "id": "ms-entraid2",
+      "title": "Further Demystifying the Vision of Microsoft Entra ID",
+      "date": "2025-04-03",
+      "summary": "Let’s explore the foundation behind this secure ecosystem…Microsoft Entra ID.",
+      "tags": ["MicrosoftAzure", "MicrosoftEntraID", "IdentityManagement", "CloudSecurity", "IAM", "AzureAD", "Cloud", "SysAdmin"],
+      "image": ["assets/blog/images/microsoftentraid2.jpg"]
+    },
+    {
       "id": "my-first-post",
       "title": "Azure Private Link",
       "date": "2023-06-15",
