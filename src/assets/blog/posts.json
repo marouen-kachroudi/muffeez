@@ -24,10 +24,10 @@
       "image": ["assets/blog/images/vmss.jpg"]
     },
     {
-      "id": "az-private-link",
+      "id": "az-privatelink",
       "title": "Build Smarter, Not Riskier: Azure Private Link in Action",
       "date": "2025-04-11",
-      "summary": "Azure Private Link gives you direct, private access to Azure services—no public exposure, no extra complexity, just secure-by-design networking.",
+      "summary": "Azure Private Link gives you direct, private access to Azure services without public exposure.",
       "tags": ["AzurePrivateLink", "CloudSecurity", "AzureNetworking", "AZ104", "PrivateEndpoint", "ZeroTrust", "MicrosoftAzure", "SecureArchitecture", "SysAdmin", "AzureAdministrator"],
       "image": ["assets/blog/images/az-private-link.jpg"]
     },
