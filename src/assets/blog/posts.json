@@ -28,54 +28,22 @@
       "title": "Build Smarter, Not Riskier: Azure Private Link in Action",
       "date": "2025-04-11",
       "summary": "Azure Private Link gives you direct, private access to Azure services without public exposure.",
-      "tags": ["AzurePrivateLink", "CloudSecurity", "AzureNetworking", "AZ104", "PrivateEndpoint", "ZeroTrust", "MicrosoftAzure", "SecureArchitecture", "SysAdmin", "AzureAdministrator"],
+      "tags": ["AzurePrivateLink", "AzureNetworking", "AZ104", "PrivateEndpoint", "SysAdmin", "AzureAdministrator"],
       "image": ["assets/blog/images/az-private-link.jpg"]
     },
     {
-      "id": "another-post",
-      "title": "Another Post",
-      "date": "2023-06-14",
-      "summary": "More thoughts and ideas",
-      "tags": ["Test", "Angular"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
+      "id": "az-frontdoor",
+      "title": "Azure Front Door: Your Gateway to Fast, Secure & Global Apps",
+      "date": "2025-04-14",
+      "summary": "Deliver blazing speed, enterprise-grade security & high availability — everywhere, every time.",
+      "tags": ["AzureFrontDoor", "CloudSecurity", "SecurityatScale", "AppPerformance", "SysAdmin", "MicrosoftAzure"],
+      "image": ["assets/blog/images/azurefrontdoor.jpg"]
     },
     {
       "id": "yet-another-post",
       "title": "Yet Another Post",
       "date": "2023-06-13",
       "summary": "Continuing the journey",
-      "tags": ["Test", "Angular"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
-    },
-    {
-      "id": "my-first-post-2",
-      "title": "My First Blog Post 2",
-      "date": "2023-06-12",
-      "summary": "An introduction to my blog 2",
-      "tags": ["Test", "Angular"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
-    },
-    {
-      "id": "my-first-post-5",
-      "title": "Blog from May 2023",
-      "date": "2023-05-12",
-      "summary": "An introduction to my blog 2",
-      "tags": ["Test", "Angular"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
-    },
-    {
-      "id": "my-first-post-7",
-      "title": "Blog from April 2023",
-      "date": "2023-04-12",
-      "summary": "An introduction to my blog 2",
-      "tags": ["Test", "Angular"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
-    },
-    {
-      "id": "my-first-post-8",
-      "title": "Blog from January 2023",
-      "date": "2023-01-12",
-      "summary": "An introduction to my blog 2",
       "tags": ["Test", "Angular"],
       "image": ["assets/blog/images/blog-placeholder.jpg"]
     }
