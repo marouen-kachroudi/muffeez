@@ -40,11 +40,11 @@
       "image": ["assets/blog/images/azurefrontdoor.jpg"]
     },
     {
-      "id": "yet-another-post",
-      "title": "Yet Another Post",
-      "date": "2023-06-13",
-      "summary": "Continuing the journey",
-      "tags": ["Test", "Angular"],
-      "image": ["assets/blog/images/blog-placeholder.jpg"]
+      "id": "rbac",
+      "title": "Who Gets In? A Clear-Cut Guide to Azure Role-Based Access",
+      "date": "2025-04-16",
+      "summary": "In Azure, security is not just about firewalls and encryption. It's about who can do what, and where.",
+      "tags": ["AzureRBAC", "IdentityAndAccessManagement", "MicrosoftAzure", "IAMStrategy", "CloudArchitect", "SecureAccess"],
+      "image": ["assets/blog/images/rbac.jpg"]
     }
   ]
