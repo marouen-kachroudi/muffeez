@@ -24,11 +24,11 @@
       "image": ["assets/blog/images/vmss.jpg"]
     },
     {
-      "id": "my-first-post",
-      "title": "Azure Private Link",
-      "date": "2023-06-15",
-      "summary": "Azure Private Link is a service that provides private connectivity from a virtual network to Azure services.",
-      "tags": ["Azure", "Cloud", "Private Link", "Services"],
+      "id": "az-private-link",
+      "title": "Build Smarter, Not Riskier: Azure Private Link in Action",
+      "date": "2025-04-11",
+      "summary": "Azure Private Link gives you direct, private access to Azure services—no public exposure, no extra complexity, just secure-by-design networking.",
+      "tags": ["AzurePrivateLink", "CloudSecurity", "AzureNetworking", "AZ104", "PrivateEndpoint", "ZeroTrust", "MicrosoftAzure", "SecureArchitecture", "SysAdmin", "AzureAdministrator"],
       "image": ["assets/blog/images/az-private-link.jpg"]
     },
     {
