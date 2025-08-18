@@ -54,5 +54,13 @@
       "summary": "In the cloud governance register, Azure Policy is your silent enforcer.",
       "tags": ["AzurePolicy", "MicrosoftAzure", "AzureAdministration", "ComplianceByDesign", "CloudSecurity", "GovernanceInAction"],
       "image": ["assets/blog/images/azurepolicy.jpg"]
+    },
+        {
+      "id": "azuretags",
+      "title": "Tagging Azure Resources for Clarity and Control",
+      "date": "2025-04-21",
+      "summary": "As your Azure environment grows, keeping track of resources becomes harder, unless you have a solid strategy.",
+      "tags": ["AzureTags", "CloudGovernance", "MicrosoftAzure", "ResourceManagement", "AZ104", "CloudCostOptimization"],
+      "image": ["assets/blog/images/azuretags.jpg"]
     }
   ]

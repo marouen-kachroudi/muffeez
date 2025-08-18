@@ -57,7 +57,7 @@ You write policies that target specific conditions (like resource types, locatio
   Reduce risks by preventing unauthorized configurations from ever being deployed.
 
 - **Automation-First Governance**  
-  No more manual checking — let Azure enforce the rules 24/7.
+  No more manual checking, let Azure enforce the rules 24/7.
 
 ---
 
@@ -73,4 +73,4 @@ You write policies that target specific conditions (like resource types, locatio
 ## 🎯 Final Thoughts
 Azure Policy isn’t just about writing rules; it’s about creating a **predictable, secure, and scalable environment** that frees your team from manual governance.  
 
-Think of it as your **guardrail system**, keeping your cloud organised, compliant, and under control — even as you scale.
+Think of it as your **guardrail system**, keeping your cloud organised, compliant, and under control, even as you scale.
