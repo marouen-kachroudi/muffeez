@@ -1,7 +1,7 @@
 ---
 title: "Tagging Azure Resources for Clarity and Control"
 date: 2025-04-21
-subtitle: "As your Azure environment grows, keeping track of resources becomes harder, unless you have a solid strategy."
+subtitle: "The secret weapon for organizing, monitoring, and managing Azure assets at scale."
 author: "Marouen Kachroudi"
 tags: ['AzureTags', 'CloudGovernance', 'MicrosoftAzure', 'ResourceManagement', 'AZ104', 'CloudCostOptimization']
 image: "assets/blog/images/azuretags.jpg"
