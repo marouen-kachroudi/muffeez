@@ -55,12 +55,20 @@
       "tags": ["AzurePolicy", "MicrosoftAzure", "AzureAdministration", "ComplianceByDesign", "CloudSecurity", "GovernanceInAction"],
       "image": ["assets/blog/images/azurepolicy.jpg"]
     },
-        {
+    {
       "id": "azuretags",
       "title": "Tagging Azure Resources for Clarity and Control",
       "date": "2025-04-21",
       "summary": "As your Azure environment grows, keeping track of resources becomes harder, unless you have a solid strategy.",
       "tags": ["AzureTags", "CloudGovernance", "MicrosoftAzure", "ResourceManagement", "AZ104", "CloudCostOptimization"],
       "image": ["assets/blog/images/azuretags.jpg"]
+    },
+    {
+      "id": "arm",
+      "title": "Azure Resource Manager (ARM): The Core of Your Cloud Operations",
+      "date": "2025-04-29",
+      "summary": "Think of Azure Resource Manager (ARM) as the control centre of a vast cloud ecosystem.",
+      "tags": ["AzureARM", "CloudManagement", "MicrosoftAzure", "CloudGovernance"],
+      "image": ["assets/blog/images/arm.jpg"]
     }
   ]
