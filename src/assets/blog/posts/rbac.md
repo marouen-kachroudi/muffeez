@@ -13,7 +13,7 @@ Who has access to your Azure resources, and are you sure it's the right level?
 If the answer isn’t crystal clear, it’s time to rethink your access strategy.  
 
 In Azure, security is not just about firewalls and encryption. It's about **who can do what, and where**.  
-That’s where **Azure Role-Based Access Control (RBAC)** comes in. It lets you fine-tune access to your cloud resources so that everyone gets just the right level of control — no more, no less.  
+That’s where **Azure Role-Based Access Control (RBAC)** comes in. It lets you fine-tune access to your cloud resources so that everyone gets just the right level of control, no more, no less.  
 
 Let’s break it down into actionable insights you can use.  
 

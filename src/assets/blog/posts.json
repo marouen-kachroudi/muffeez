@@ -35,7 +35,7 @@
       "id": "az-frontdoor",
       "title": "Azure Front Door: Your Gateway to Fast, Secure & Global Apps",
       "date": "2025-04-14",
-      "summary": "Deliver blazing speed, enterprise-grade security & high availability — everywhere, every time.",
+      "summary": "Deliver blazing speed, enterprise-grade security & high availability, everywhere, every time.",
       "tags": ["AzureFrontDoor", "CloudSecurity", "SecurityatScale", "AppPerformance", "SysAdmin", "MicrosoftAzure"],
       "image": ["assets/blog/images/azurefrontdoor.jpg"]
     },
@@ -46,5 +46,13 @@
       "summary": "In Azure, security is not just about firewalls and encryption. It's about who can do what, and where.",
       "tags": ["AzureRBAC", "IdentityAndAccessManagement", "MicrosoftAzure", "IAMStrategy", "CloudArchitect", "SecureAccess"],
       "image": ["assets/blog/images/rbac.jpg"]
+    },
+    {
+      "id": "policy",
+      "title": "Enforce Without Effort: Getting Smart with Azure Policy",
+      "date": "2025-04-18",
+      "summary": "In the cloud governance register, Azure Policy is your silent enforcer.",
+      "tags": ["AzurePolicy", "MicrosoftAzure", "AzureAdministration", "ComplianceByDesign", "CloudSecurity", "GovernanceInAction"],
+      "image": ["assets/blog/images/azurepolicy.jpg"]
     }
   ]
