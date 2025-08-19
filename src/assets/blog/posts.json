@@ -95,4 +95,12 @@
       "tags": ["AzureLoadBalancer", "CloudNetworking", "MicrosoftAzure", "AZ104", "CloudArchitecture", "AzureAdministrator"],
       "image": ["assets/blog/images/loadbalancer.jpg"]
     }
+    {
+      "id": "vm",
+      "title": "Unlocking Cloud Potential: Your Guide to Azure Virtual Machines",
+      "date": "2025-05-25",
+      "summary": "Azure Virtual Machines (VMs) are a fundamental pillar of cloud infrastructure.",
+      "tags": ["Azure", "AZ104", "CloudComputing", "SysAdmin", "Azure", "VirtualMachine"],
+      "image": ["assets/blog/images/vm.jpg"]
+    },
   ]
