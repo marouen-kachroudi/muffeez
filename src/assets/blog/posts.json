@@ -70,5 +70,13 @@
       "summary": "Think of Azure Resource Manager (ARM) as the control centre of a vast cloud ecosystem.",
       "tags": ["AzureARM", "CloudManagement", "MicrosoftAzure", "CloudGovernance"],
       "image": ["assets/blog/images/arm.jpg"]
+    },
+    {
+      "id": "vnet",
+      "title": "Azure Virtual Network: The Backbone of Your Cloud Infrastructure",
+      "date": "2025-05-05",
+      "summary": "With Azure Virtual Network, of course, the key to building a secure, efficient cloud ecosystem.",
+      "tags": ["AzureVNet", "CloudNetworking", "MicrosoftAzure", "CloudSecurity", "AZ104"],
+      "image": ["assets/blog/images/azurevnet.jpg"]
     }
   ]
