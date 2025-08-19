@@ -78,5 +78,13 @@
       "summary": "With Azure Virtual Network, of course, the key to building a secure, efficient cloud ecosystem.",
       "tags": ["AzureVNet", "CloudNetworking", "MicrosoftAzure", "CloudSecurity", "AZ104"],
       "image": ["assets/blog/images/azurevnet.jpg"]
+    },
+    {
+      "id": "nsg",
+      "title": "Azure Network Security Groups: Defending Your Cloud Infrastructure",
+      "date": "2025-05-09",
+      "summary": "Azure Network Security Groups (NSGs) act as virtual firewalls that control inbound and outbound network traffic to Azure resources.",
+      "tags": ["AzureNSG", "NetworkSecurity", "AzureSecurity", "VirtualNetworking", "CloudGovernance", "CloudArchitect"],
+      "image": ["assets/blog/images/nsg.jpg"]
     }
   ]
