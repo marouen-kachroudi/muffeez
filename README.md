@@ -100,6 +100,17 @@ jobs:
 | `app_build_command` | (inherited) | string | Alternative to separate build step in workflow | ❌ No |
 
 
+### Dev Local Server Envirement
+```
+# Install Angular CLI as dev dependency
+npm install --save-dev @angular/cli@14
+
+# Then run ng serve using npx
+npx ng serve
+
+# Or add to package.json scripts and use npm
+npm start
+```
 ### Environment Variables
 
 ```yaml
